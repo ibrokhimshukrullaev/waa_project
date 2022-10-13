@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: backend
+  datasource:
+    password: 1
+    url: jdbc:postgresql://localhost:5432/waa_alumni
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+  main:
+    allow-bean-definition-overriding: true
+server:
+  port: 8080
+  servlet:
+    session:
+      tracking-modes: cookie
+keycloak:
+  realm: waa-project
+  auth-server-url: http://localhost:8081
+  resource: waa-client
+  public-client: true
+  bearer-only: true
+  #ssl-required: external
+  #use-resource-role-mappings: true
+  #connection-timeout: 6000
+  #principal-attribute: preferred_username
+aws:
+  zone: us-east-1
+  s3:
+    access_key: access_key
+    secret_key: secret_key
